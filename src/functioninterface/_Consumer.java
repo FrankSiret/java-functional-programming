@@ -1,34 +1,42 @@
 package functioninterface;
 
-import java.util.function.BiFunction;
-import java.util.function.Function;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 public class _Consumer {
 	public static void main(String []args) {
-		int increment = increment(1);
-		// Imperative
-		System.out.println(increment);
+		// Normal java function
+		Customer juan = new Customer("Juan", "99999");
+		greetCustomer(juan);
 		
-		// Declarative
-		int increment2 = incrementByOne.apply(1);
-		System.out.println(increment2);
+		// Consumer Functional interface
+		greetCustomerConsumer.accept(juan);
 		
-		int multiply = multiplyBy10.apply(increment2);
-		System.out.println(multiply);
-		
-		int addMultiply = incrementByOne.andThen(multiplyBy10).apply(1);
-		System.out.println(addMultiply);
-		
-		System.out.println(incrementByOneAndMultiply.apply(4,100));
+		greetCustomerConsumerV2.accept(juan, false);
 	}
 	
-	static Function<Integer, Integer> incrementByOne = number -> number + 1;
+	static Consumer<Customer> greetCustomerConsumer = customer -> 
+			System.out.println("Hello " + customer.customerName 
+					+ ", thanks for registing phone number " 
+					+ customer.customerPhoneNumber); 
+			
+	static BiConsumer<Customer, Boolean> greetCustomerConsumerV2 = (customer, showNumber) -> 
+			System.out.println("Hello " + customer.customerName 
+					+ ", thanks for registing phone number " 
+					+ (showNumber ? customer.customerPhoneNumber : "***")); 
 	
-	static Function<Integer, Integer> multiplyBy10 = number -> number * 10;
+	static void greetCustomer(Customer customer) {
+		System.out.println("Hello " + customer.customerName 
+				+ ", thanks for registing phone number " 
+				+ customer.customerPhoneNumber);
+	}
 	
-	static BiFunction<Integer, Integer, Integer> incrementByOneAndMultiply = (number, multiplyBy) -> (number+1) * multiplyBy;
-	
-	static int increment(int number) {
-		return number + 1;
+	static class Customer {
+		private final String customerName;
+		private final String customerPhoneNumber;
+		public Customer(String customerName, String customerPhoneNumber) {
+			this.customerName = customerName;
+			this.customerPhoneNumber = customerPhoneNumber;
+		}		
 	}
 }

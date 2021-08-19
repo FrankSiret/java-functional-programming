@@ -1,4 +1,4 @@
-# java-functional-programming
+# Java functional programming
 
 See the [Main file here](https://github.com/FrankSiret/java-functional-programming/blob/master/src/fp/Main.java) 
 
@@ -23,6 +23,11 @@ Represent a predicate (boolean-valued function) of on argument.
 
 ```java
 Predicate<Person> isFemale = person -> FEMALE.equals(person.gender);
+...
+isFemale.test(person);
+...
+// isPhoneNumberValidPredicate && containsNumber3
+isPhoneNumberValidPredicate.and(containsNumber3).test("07000000003")); 
 ```
 
 3. Function<T,R>
@@ -54,5 +59,25 @@ static BiFunction<Integer, Integer, Integer> incrementByOneAndMultiply = (number
 Represent an operation that accepts a single input argument and returns no result.
 
 ```java
+Consumer<Customer> greetCustomerConsumer = customer -> System.out::println;
+```
 
+7. BiConsumer<T,U>
+
+Represent an operation that accepts two input arguments and returns no result.
+
+```java
+Consumer<Customer,Boolean> greetCustomerConsumerV2 = (customer, show) -> System.out::println;
+```
+
+8. BiPredicate<T,U>
+
+9. Supplier<T>
+
+Return a value
+
+```java
+static Supplier<List<String>> getDBConnectionUrls = () -> List.of("jdbc://localhost:5432/users", "jdbc://localhost:5432/customer");
+...
+getDBConnectionUrls.get();
 ```
