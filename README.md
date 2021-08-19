@@ -2,7 +2,7 @@
 
 See the [Main file here](https://github.com/FrankSiret/java-functional-programming/blob/master/src/fp/Main.java) 
 
-1. Java util function package
+### 1. Java util function package
 
 Functional interface provide target types for lambda expressions and method references.
 
@@ -17,7 +17,7 @@ stream.filter(e -> e.getSize() > 10)...
 stream.map((ToIntFunction) e -> e.getSize())...
 ```
 
-2. Predicate<T>
+### 2. Predicate<T>
 
 Represent a predicate (boolean-valued function) of on argument.
 
@@ -30,7 +30,7 @@ isFemale.test(person);
 isPhoneNumberValidPredicate.and(containsNumber3).test("07000000003")); 
 ```
 
-3. Function<T,R>
+### 3. Function<T,R>
 
 Represents a function that accepts one argument and produces a result.
 
@@ -40,13 +40,13 @@ static Function<Integer, Integer> incrementByOne = number -> number + 1;
 int increment = incrementByOne.apply(1);
 ```
 
-4. Chaining functions
+### 4. Chaining functions
 
 ```java
 int addMultiply = incrementByOne.andThen(multiplyBy10).apply(1); // (n + 1) * 10
 ```
 
-5. BiFunction<T,U,R>
+### 5. BiFunction<T,U,R>
 
 Represent a function that accepts two arguments and produce a result.
 
@@ -54,7 +54,7 @@ Represent a function that accepts two arguments and produce a result.
 static BiFunction<Integer, Integer, Integer> incrementByOneAndMultiply = (number, multiplyBy) -> (number + 1) * multiplyBy;
 ```
 
-6. Consumer<T>
+### 6. Consumer<T>
 
 Represent an operation that accepts a single input argument and returns no result.
 
@@ -62,7 +62,7 @@ Represent an operation that accepts a single input argument and returns no resul
 Consumer<Customer> greetCustomerConsumer = customer -> System.out::println;
 ```
 
-7. BiConsumer<T,U>
+### 7. BiConsumer<T,U>
 
 Represent an operation that accepts two input arguments and returns no result.
 
@@ -70,9 +70,9 @@ Represent an operation that accepts two input arguments and returns no result.
 Consumer<Customer,Boolean> greetCustomerConsumerV2 = (customer, show) -> System.out::println;
 ```
 
-8. BiPredicate<T,U> 
+### 8. BiPredicate<T,U> 
 
-9. Supplier<T>
+### 9. Supplier<T>
 
 Return a value
 
@@ -82,7 +82,7 @@ static Supplier<List<String>> getDBConnectionUrls = () -> List.of("jdbc://localh
 getDBConnectionUrls.get();
 ```
 
-10. Java Optionals
+### 10. Java Optionals
 
 A container object which may or may not contain a non-null value. If a value is present, isPresent() will return true and get() will return the value.
 
@@ -92,19 +92,19 @@ This is a value-based class; use of identity-sensitive operations (including ref
 
 See at [java optionals here](https://github.com/FrankSiret/java-functional-programming/blob/master/src/optionals/Main.java) 
 
-11. Combinator Pattern
+### 11. Combinator Pattern
 
 See at [Combinator Pattern project here](https://github.com/FrankSiret/java-functional-programming/tree/master/src/combinatorpattern)
 
-12. Callbacks and Lambdas
+### 12. Callbacks and Lambdas
 
-13. Conclusions
+### 13. Conclusions
 
 Pure functional programming has a set of rules to follow
 
-> - No state
-> - Pure Functions
-> - No Side Effects
-> - Higher Orden Functions
-> 	* The function takes one or more funtions as parameters.
-> 	* The function returns another function as result.
+- No state
+- Pure Functions
+- No Side Effects
+- Higher Orden Functions
+	> The function takes one or more funtions as parameters. <br>
+	> The function returns another function as result.
