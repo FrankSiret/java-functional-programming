@@ -2,6 +2,8 @@
 
 See the [Main file here](https://github.com/FrankSiret/java-functional-programming/blob/master/src/fp/Main.java) 
 
+![Java Functional Programming](https://github.com/FrankSiret/java-functional-programming/blob/master/resources/declarative_programing.png?raw=false)
+
 ### 1. Java util function package
 
 Functional interface provide target types for lambda expressions and method references.
