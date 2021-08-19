@@ -92,3 +92,4 @@ This is a value-based class; use of identity-sensitive operations (including ref
 
 11. Combinator Pattern
 
+See at [Combinator Pattern project here](https://github.com/FrankSiret/java-functional-programming/tree/master/src/combinatorpattern)

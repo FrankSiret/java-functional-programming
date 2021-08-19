@@ -18,10 +18,11 @@ public class Main {
 		System.out.println(validatorService.isValid(customer));
 		
 		// Using combinator pattern
-		ValidationResult result = CustomerRegistrationValidator.isEmailValid()
-			.and(CustomerRegistrationValidator.isPhoneNumberValid())
-			.and(CustomerRegistrationValidator.isAdult())
-			.apply(customer);
+		ValidationResult result =
+				CustomerRegistrationValidator.isEmailValid()
+				.and(CustomerRegistrationValidator.isPhoneNumberValid())
+				.and(CustomerRegistrationValidator.isAdult())
+				.apply(customer);
 		
 		System.out.println(result);
 		
