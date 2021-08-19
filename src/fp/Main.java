@@ -5,6 +5,7 @@ import static fp.Main.Gender.MALE;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -22,7 +23,7 @@ public class Main {
 			new Person("Taylor", FEMALE)
 		);
 		
-		System.out.println("// Imperative approach");
+		System.out.println("// 1.1 Imperative approach");
 		List<Person> females = new ArrayList<>();
 		for(Person person: people) {
 			if(FEMALE.equals(person.gender)) 
@@ -32,11 +33,26 @@ public class Main {
 			System.out.println(female);
 		}
 		
-		System.out.println("// Declarative approach");
+		System.out.println("// 1.2.1 Declarative approach");
 		people.stream()
 			.filter(person -> FEMALE.equals(person.gender))
 			.collect(Collectors.toList())
 			.forEach(System.out::println);
+		
+		System.out.println("// 1.2.2 Declarative approach: another way"); 
+		List<Person> females2 = people.stream()
+			.filter(person -> FEMALE.equals(person.gender))
+			.collect(Collectors.toList());
+		females2.forEach(System.out::println);
+		
+		System.out.println("// 2 Predicate"); 
+		Predicate<Person> isFemale = person -> FEMALE.equals(person.gender);
+		people.stream()
+			.filter(isFemale)
+			.collect(Collectors.toList())
+			.forEach(System.out::println);
+		
+		System.out.println("// 3  Function"); 
 	}
 	
 	static class Person {
@@ -46,7 +62,7 @@ public class Main {
 			this.name = name;
 			this.gender = gender;
 		}
-		@Override
+		@Override 
 		public String toString() {
 			return "Person [name=" + name + ", gender=" + gender + "]";
 		}
