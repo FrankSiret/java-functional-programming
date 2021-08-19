@@ -70,7 +70,7 @@ Represent an operation that accepts two input arguments and returns no result.
 Consumer<Customer,Boolean> greetCustomerConsumerV2 = (customer, show) -> System.out::println;
 ```
 
-8. BiPredicate<T,U>
+8. BiPredicate<T,U> 
 
 9. Supplier<T>
 
@@ -90,6 +90,21 @@ Additional methods that depend on the presence or absence of a contained value a
 
 This is a value-based class; use of identity-sensitive operations (including reference equality (==), identity hash code, or synchronization) on instances of Optional may have unpredictable results and should be avoided.
 
+See at [java optionals here](https://github.com/FrankSiret/java-functional-programming/blob/master/src/optionals/Main.java) 
+
 11. Combinator Pattern
 
 See at [Combinator Pattern project here](https://github.com/FrankSiret/java-functional-programming/tree/master/src/combinatorpattern)
+
+12. Callbacks and Lambdas
+
+13. Conclusions
+
+Pure functional programming has a set of rules to follow
+
+> - No state
+> - Pure Functions
+> - No Side Effects
+> - Higher Orden Functions
+> 	* The function takes one or more funtions as parameters.
+> 	* The function returns another function as result.
